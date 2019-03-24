@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>,Шахматы</title>
+    
+
+    <script type="text/javascript">
+        
+
+        
+        function CreateTable(){
+            
+             var m = parseInt(document.getElementById("m").value);
+      var n = parseInt(document.getElementById("n").value);
+            
+            var poz = document.getElementById('space');
+
+            // createing table adn inserting into document
+            tab = document.createElement('table');
+            poz.appendChild(tab);
+
+            tab.border = '20';
+
+            for (var i = 0; i < m; i++){
+                
+                var row = tab.insertRow(i);
+
+                for(var j = 0; j < n; j++){
+                    
+                    var cell = row.insertCell(j);
+                   // cell.innerHTML = i*j;
+                    
+                    if((i+j)%2){ cell.style.backgroundColor = 'white'; }
+                   else{ cell.style.backgroundColor = 'black'; }
+                    cell.style.color = 'white';
+                    cell.style.height = '50px';
+                    cell.style.width = '50px';
+
+                };
+            };
+
+        }
+    </script>
+    
+</head>
+<body onload="CreateTable()" id ="space">
+<form>
+    M
+    <input type ="text" id="m">
+    N
+      <input type ="text" id="n">
+      <input type ="button" value = "Send" onclick="CreateTable()">
+
+    </form>
+
+</body>
+</html>
