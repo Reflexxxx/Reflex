@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Минимальное и максимальное число</title>
+    
+
+    <script type="text/javascript">
+            
+   function squirrell(){
+          var day1 = {
+              squirrel: false,
+              events: ["work", "touched the tree", "pizza", "running", "tv"]
+          };
+        console.log(day1.squirrel);
+        console.log(day1.events);
+       day1.wolf = true;
+       console.log(day1.wolf);
+   }
+        
+        
+    function jour(){
+        var journal =[];
+        
+         function addEntry(events, didITurnIntoASquirrel){
+            journal.push({
+                events: events,
+                squirrel: didITurnIntoASquirrel
+            });
+            
+            
+        }
+        addEntry(["work", "touched the tree", "pizza", "running", "tv"], false); 
+         addEntry(["work", "cake", "washed my teath", "touched the tree", "lasagna"], false); 
+         addEntry(["work hard", "food", "peanuts", "smoking", "lessons"], true); 
+        addEntry(["sleep", "mother", "peanuts", "blabla", "drunked"], true); addEntry(["sleep", "food", "pizza", "touched the tree", "training"], false); 
+        for (var i = 0; i < journal.length; i++){
+        console.log(journal[i].events);
+        }
+        return journal;
+    }
+        
+        function phi(table){
+            return(table[3] * table[0] - table[2] * table[1]) /
+               Math.sqrt((table[2] + table[3]) * 
+                         (table[0] + table[1]) *
+                         (table[1] + table[3]) *
+                         (table[0] + table[2]))
+            
+        }
+        console.log(phi([76, 9, 4, 1]));
+        
+        function hasEvent(event, entry) {
+            return entry.events.indexOf(event) != -1;
+        }
+        
+        function tableFor(event, journal){
+            var table = [0, 0, 0, 0];
+            for (var i = 0; i < journal.length; i++){
+                var entry = journal[i], index = 0;
+                if(hasEvent(event, entry)) index += 1;
+                if(entry.squirrel) index += 2;
+                table[index] += 1;
+            }
+            return table;
+        }
+        
+        console.log(tableFor("pizza", jour()));
+        
+        var map = {};
+        
+        function storePhi(event, phi) {
+            map[event] = phi;
+        }
+        
+        storePhi("pizza", 0.069);
+        storePhi("touched the tree", -0.081);
+        console.log("pizza" in map);
+        console.log(map["touched the tree"]);
+        
+        for(var event in map){
+            console.log("Corelation for " + event + " is " + map[event]);
+        }
+        
+        
+        function gatherCorrelations(journal) {
+            var phis = {};
+            for (var entry = 0; entry < journal.length; entry++) {
+                var events = journal[entry].events;
+                for(var i = 0; i < events.length; i++){
+                    var event = events[i];
+                    if(!(event in phis))
+                        phis[event] = phi(tableFor(event, journal));
+                }
+            }
+            return phis;
+        }
+        
+        var correlations = gatherCorrelations(jour());
+        
+        console.log(correlations.pizza);
+        
+        for( var event in correlations){
+            var correlation = correlations[event];
+            if (correlation > 0.1 || correlation < -0.1)
+            console.log(event + ": " + correlations[event]);
+        }
+       
+        for (var i = 0; i < jour().length; i++) {
+            var entry = jour()[i];
+             console.log(entry);
+            if(hasEvent("peanuts", entry) &&
+                !hasEvent("touched the tree", entry))
+                jour()[i].events.push("peanuts tree");}
+        
+        console.log(phi(tableFor("peanuts tree", jour())));
+        
+          for (var i = 0; i < jour().length; i++) {
+        console.log(jour()[i].events);}
+        
+                
+        
+    </script>
+    
+</head>
+<body  onload="squirrell(); jour()"  id ="space">
+<form name="form1">
+    
+
+    </form>
+
+</body>
+</html>

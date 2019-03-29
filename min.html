@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Минимальное и максимальное число</title>
+    
+
+    <script type="text/javascript">
+        
+        function minim(a,b){
+            
+            var a_v=parseFloat(form1.a.value);
+            var b_v=parseFloat(form1.b.value);
+            if (form1.a.value != a_v || form1.b.value != b_v)
+            {
+                console.log("Error");
+            }
+            else if (a_v < b_v){
+                console.log("min = " + a_v +  "  max = " + b_v);
+            }
+            else if (b_v < a_v) {
+                console.log("max = " + a_v +  "  min = "  + b_v);
+            }
+
+            else {
+                console.log("They are equal");
+            }
+        
+        }
+    </script>
+    
+</head>
+<body onload="minim()" id ="space">
+<form name="form1">
+    A
+    <input type ="text" id="a">
+    B
+      <input type ="text" id="b">
+      <input type ="button" value = "Send" onclick="minim()">
+
+    </form>
+
+</body>
+</html>

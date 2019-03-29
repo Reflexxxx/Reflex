@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Минимальное и максимальное число</title>
+    
+
+    <script type="text/javascript">
+            
+            function countBeans() {
+                var s=form1.sstr.value;  
+                if (form1.sstr.value){
+                console.log("Your string is | " + s);
+                console.log(s.charAt(5));
+                console.log("Chars in the string  " + s.length);
+                var j=0;
+                    
+                                for (var i = 0; i<s.length; i++){
+                                        if (s.charAt(i) ==  "B"){
+                                            j+=1;
+                                        }
+                                   
+                                }
+                               
+                    
+            
+                    if ( j == 0)  {
+                                        console.log("There is no B in your string")
+                                    }
+                    else {
+                         console.log("There is " + (j) + " B's in your string");
+                    }
+            }
+            }
+        
+           function countChar() {
+                var s=form1.sstr.value; 
+               var c=form1.chr.value;
+                if (form1.chr.value){
+                var t=0;
+                    
+                                for (var h = 0; h<s.length; h++){
+                                        if (s.charAt(h) ==  c){
+                                            t+=1;
+                                        }
+                                   
+                                }
+                                
+                    
+            
+                    if ( t == 0)  {
+                                        console.log("There is no such symbol in your string")
+                                    } 
+                    else {
+                        console.log("There is " + (t) + " such symbols in your string");
+                    }
+            }
+            }
+        
+        
+        
+        
+        
+        	function show() {
+				countBeans(form1.sstr.value);
+			}
+        
+
+    </script>
+    
+</head>
+<body onload="countBeans()" onload="countChar()" id ="space">
+<form name="form1">
+    Your string
+    <input type ="text" id="sstr">
+    
+      <input type ="button" value = "Send" onclick="show()"><br>
+    
+     The Char you want to find
+    <input type ="text" id="chr">
+    
+      <input type ="button" value = "Send" onclick="countChar()">
+
+    </form>
+
+</body>
+</html>

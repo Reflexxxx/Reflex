@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Минимальное и максимальное число</title>
+    
+
+    
+</head>
+<body id ="space">
+    
+    
+    
+<form name="form1">
+    N
+    <input type ="text" id="n">
+    
+      <input type ="button" value = "Send" onclick="show()">
+
+    </form>
+    
+          <script type="text/javascript">
+            
+			function show() {
+				alert(isEven(form1.n.value));
+			}
+
+            function isEven(nu) {            
+                  if (nu == 0)
+                    return true;
+                  else if (nu == 1)
+                    return false;
+                  else if (nu < 0)
+                    return isEven(-nu);
+                  else
+                    return isEven(nu- 2);
+                }
+
+    </script>
+    
+
+
+</body>
+</html>
